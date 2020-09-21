@@ -617,6 +617,21 @@ class TokenPageHandler(BaseHandler):
         )
         self.finish(html)
 
+class NodesPageHandler(BaseHandler):
+    """Handler for managing cluster nodes"""
+
+    @web.authenticated
+    def get(self):
+        html = self.render_template('nodes.html')
+        self.finish(html)
+
+class JobsPageHandler(BaseHandler):
+    """Handler for managing cluster jobs"""
+
+    @web.authenticated
+    def get(self):
+        html = self.render_template('jobs.html')
+        self.finish(html)
 
 class ProxyErrorHandler(BaseHandler):
     """Handler for rendering proxy error pages"""
@@ -674,6 +689,8 @@ default_handlers = [
     (r'/spawn/([^/]+)', SpawnHandler),
     (r'/spawn/([^/]+)/([^/]+)', SpawnHandler),
     (r'/token', TokenPageHandler),
+    (r'/nodes', NodesPageHandler),
+    (r'/jobs', JobsPageHandler),
     (r'/error/(\d+)', ProxyErrorHandler),
     (r'/health$', HealthCheckHandler),
 ]
