@@ -998,7 +998,7 @@ class Spawner(LoggingConfigurable):
             args.append('--debug')
         if self.disable_user_config:
             args.append('--disable-user-config')
-        args.extend(self.args)
+        args.extend([self.format_string(a) for a in self.args])
         return args
 
     def run_pre_spawn_hook(self):
