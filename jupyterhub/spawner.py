@@ -181,6 +181,7 @@ class Spawner(LoggingConfigurable):
             )
 
     proxy_spec = Unicode()
+    server_name = Unicode()
 
     @property
     def last_activity(self):
@@ -845,8 +846,8 @@ class Spawner(LoggingConfigurable):
         d = {'username': self.user.name}
         if self.server:
             d['base_url'] = self.server.base_url
-        if self.name:
-            d['lab_base_url'] = '/user/' + self.user.name + '/' + self.name
+        if self.server_name:
+            d['lab_base_url'] = '/user/' + self.user.name + '/' + self.server_name
         else:
             d['lab_base_url'] = '/user/' + self.user.name
         return d
