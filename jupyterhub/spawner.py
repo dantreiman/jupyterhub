@@ -758,12 +758,12 @@ class Spawner(LoggingConfigurable):
             env['JUPYTERHUB_COOKIE_OPTIONS'] = json.dumps(self.cookie_options)
         env['JUPYTERHUB_HOST'] = self.hub.public_host
         env['JUPYTERHUB_OAUTH_CALLBACK_URL'] = url_path_join(
-            self.user.url, self.name, 'oauth_callback'
+            self.user.url, self.server_name, 'oauth_callback'
         )
 
         # Info previously passed on args
         env['JUPYTERHUB_USER'] = self.user.name
-        env['JUPYTERHUB_SERVER_NAME'] = self.name
+        env['JUPYTERHUB_SERVER_NAME'] = self.server_name
         env['JUPYTERHUB_API_URL'] = self.hub.api_url
         env['JUPYTERHUB_ACTIVITY_URL'] = url_path_join(
             self.hub.api_url,
