@@ -846,9 +846,9 @@ class Spawner(LoggingConfigurable):
         if self.server:
             d['base_url'] = self.server.base_url
         if self.name:
-            d['lab_base_url'] = '/user/' + self.user.name + '/' + self.name + '/'
+            d['lab_base_url'] = '/user/' + self.user.name + '/' + self.name
         else:
-            d['lab_base_url'] = '/user/' + self.user.name + '/'
+            d['lab_base_url'] = '/user/' + self.user.name
         return d
 
     def format_string(self, s):
